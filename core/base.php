@@ -9,6 +9,17 @@ function get_controller() {
     $controller = isset($_GET['controller']) ? $_GET['controller'] : $config['default_controller'];
     return $controller;
 }
+function load($type, $name) {
+    if ($type == 'lib')
+        $path = LIBPATH . DIRECTORY_SEPARATOR . "{$name}.php";
+    if ($type == 'helper')
+        $path = HELPERPATH . DIRECTORY_SEPARATOR . "{$name}.php";
+    if (file_exists($path)) {
+        require "$path";
+    } else {
+        echo "{$type}:{$name} không tồn tại";
+    }
+}
 
 function get_action() {
     global $config;
