@@ -5,7 +5,7 @@
 //}
 
 ?> -->
-<?php get_header('', 'Tổng quan') ?>
+
 
     <!--begin::Subheader-->
     <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
@@ -29,4 +29,4 @@
         </div>
         <!--end::Container-->
     </div><!--end::Entry-->
-<?php get_footer() ?>
+<!--  -->

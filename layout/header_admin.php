@@ -1,4 +1,4 @@
-<?php get_header('base', $title) ?>
+
 
 <div id="kt_header_mobile" class="header-mobile align-items-center header-mobile-fixed">
 	

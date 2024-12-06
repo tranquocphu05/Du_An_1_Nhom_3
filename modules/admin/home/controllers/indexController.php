@@ -6,6 +6,6 @@ function construct() {
 }
 
 function indexAction() {
-    request_auth(true);
+    // request_auth(true);
     load_view('index');
 }

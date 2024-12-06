@@ -75,9 +75,7 @@
 <script src="assets/js/pages/crud/forms/widgets/select2.js?v=7.0.5"></script>
 <script src="assets/js/pages/crud/file-upload/image-input.js?v=7.0.5"></script>
 <script src="assets/js/pages/crud/file-upload/dropzonejs.js?v=7.0.5"></script>
-
 <script>
-	
 	var KTSelect2 = function() {
 		
 		var base = function() {
@@ -86,8 +84,6 @@
 				placeholder: "Lựa chọn ..."
 			});
 		}
-
-	
 		return {
 			init: function() {
 				base();
@@ -100,7 +96,4 @@
 	});
 </script>
 </body>
-
-
-
 </html>
