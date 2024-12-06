@@ -26,6 +26,32 @@ function get_action() {
     $action = isset($_GET['action']) ? $_GET['action'] : $config['default_action'];
     return $action;
 }
+function push_notification($type, $msgs) {
+    if (!isset($_SESSION["notification"])) $_SESSION["notification"] = [];
+    $data = [];
+    $data["type"] = $type;
+    $data["msgs"] = $msgs;
+    $_SESSION["notification"][] = $data;
+}
+
+function push_auth($user) {
+    $_SESSION["auth"] = $user;
+}
+function remove_auth()
+{
+    unset($_SESSION["auth"]);
+    return true;
+}
+function is_auth()
+{
+    return isset($_SESSION["auth"]);
+}
+function get_notification() {
+    if (!isset($_SESSION["notification"])) $_SESSION["notification"] = [];
+    $notification = $_SESSION["notification"];
+    unset($_SESSION["notification"]);
+    return $notification;
+}
 
 function get_role() {
     global $config;
@@ -70,5 +96,41 @@ function call_function($list_function = array()) {
             }
         }
     }
+}
+function request_auth($isLogin = true)
+{
+    $auth = $_GET['role'] ?? '';
+    
+    $request_role = get_role() === 'admin' ? 2 : 1;
+    
+    if (is_auth() !== $isLogin) {
+        header("Location: " . ($isLogin ? '/du_an_1_Nhom3/?role='. ($auth) . '&mod=auth' : '/du_an_1_poly_hotel/?role=' . ($auth)));
+        die;
+    }
+    
+    if (is_auth()) {
+        $auth = get_auth();
+        
+        if ($auth['role'] == 2) { 
+            return;
+        }
+        
+        if ($auth['role'] == 1) { 
+            if (isset($_GET['mod'], $_GET['action']) && $_GET['mod'] === 'account' && $_GET['action'] === 'edit') {
+                return;
+            }
+            
+            header("Location: /du_an_1_Nhom3/?role=client");
+            die;
+        }
+        
+        header("Location: /du_an_1_Nhom3/?role=" . ($auth['role'] == 1 ? 'client' : 'admin'));
+        die;
+    }
+}
+
+function get_auth()
+{
+    return $_SESSION["auth"];
 }
 ?>
