@@ -12,8 +12,6 @@ function db_connect($db) {
         error_log("MySQL connection failed: " . mysqli_connect_error(), 0);  // Log the error
         die("Kết nối không thành công: " . mysqli_connect_error());  // Display error message
     }
-
-
     return $conn;
 }
 function db_query($query_string) {
