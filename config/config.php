@@ -11,10 +11,10 @@
  * 
  */
 
-$config['base_url'] = "";
+$config['base_url'] = "http://localhost/DuAn1/";
 
 
-$config['default_role'] = 'admin';
+$config['default_role'] = 'client';
 $config['default_module'] = 'home';
 $config['default_controller'] = 'index';
 $config['default_action'] = 'index';
