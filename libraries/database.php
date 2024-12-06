@@ -20,7 +20,23 @@ function db_query($query_string) {
     }
     return $result;
 }
-
+function db_insert($table, $data) {
+    global $conn;
+    $fields = "(" . implode(", ", array_keys($data)) . ")";
+    $values = "";
+    foreach ($data as $field => $value) {
+        if ($value === NULL)
+            $values .= "NULL, ";
+        else
+            $values .= "'" . escape_string($value) . "', ";
+    }
+    $values = substr($values, 0, -2);
+    db_query("
+            INSERT INTO $table $fields
+            VALUES($values)
+        ");
+    return mysqli_insert_id($conn);
+}
 // Lấy một dòng trong CSDL
 function db_fetch_row($query_string) {
     global $conn;
