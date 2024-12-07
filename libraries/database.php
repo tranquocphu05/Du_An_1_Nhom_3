@@ -35,7 +35,23 @@ function db_fetch_array($query_string) {
     mysqli_free_result($mysqli_result);
     return $result;
 }
-
+function db_insert($table, $data) {
+    global $conn;
+    $fields = "(" . implode(", ", array_keys($data)) . ")";
+    $values = "";
+    foreach ($data as $field => $value) {
+        if ($value === NULL)
+            $values .= "NULL, ";
+        else
+            $values .= "'" . escape_string($value) . "', ";
+    }
+    $values = substr($values, 0, -2);
+    db_query("
+            INSERT INTO $table $fields
+            VALUES($values)
+        ");
+    return mysqli_insert_id($conn);
+}
 function db_sql_error($message, $query_string = "") {
     global $conn;
 
