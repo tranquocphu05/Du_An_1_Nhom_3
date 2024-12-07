@@ -22,8 +22,8 @@ function create_services($name, $price,$description,$target_file){
 function update_services($data,$id){
     db_update('service',$data,"id=$id");
 }
-function delete_service($id){
-    db_delete('service',"id=$id");
+function delete_services($id) {
+    db_delete('service', "id = $id");
     return true;
 }
 
