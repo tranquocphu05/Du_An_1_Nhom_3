@@ -5,7 +5,7 @@ function GuiMail($title, $content, $addressMail){
     require 'PHPMailer/src/Exception.php'; 
     $mail = new PHPMailer\PHPMailer\PHPMailer(true);//true:enables exceptions
     try {
-        $mail->SMTPDebug = 1; //: chế độ debug. khi chạy ngon thì chỉnh lại  nhé
+        $mail->SMTPDebug = 0; //: chế độ debug. khi chạy ngon thì chỉnh lại  nhé
         $mail->isSMTP();  
         $mail->CharSet  = "utf-8";
         $mail->Host = 'smtp.gmail.com';  //SMTP servers
