@@ -52,6 +52,10 @@ function db_insert($table, $data) {
         ");
     return mysqli_insert_id($conn);
 }
+function escape_string($str) {
+    global $conn;
+    return mysqli_real_escape_string($conn, $str);
+}
 function db_sql_error($message, $query_string = "") {
     global $conn;
 
