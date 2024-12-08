@@ -29,11 +29,14 @@ function get_one_bill_detail($id) {
 }
 
 // Xóa thông tin chi tiết hóa đơn
-function delet_bill_detail($id) {
+function delete_bill_detail($id) {
     $sql = "DELETE FROM `bill_details` WHERE id = :id";
     $params = [':id' => $id];
     db_delete($sql, $params); 
 }
-
+// Cập nhật thông tin sản phẩm
+function update_production($data, $id) {
+    db_update('bill_details', $data, "id = $id");
+}
 
 ?>
