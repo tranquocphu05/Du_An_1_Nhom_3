@@ -135,9 +135,6 @@ function call_function($list_function = array()) {
         }
     }
 }
-<<<<<<< HEAD
-
-=======
 function request_auth($isLogin = true)
 {
     $auth = $_GET['role'] ?? '';
@@ -169,10 +166,7 @@ function request_auth($isLogin = true)
         die;
     }
 }
-
 function get_auth()
 {
     return $_SESSION["auth"];
 }
->>>>>>> origin/main
-?>
