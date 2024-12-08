@@ -18,6 +18,6 @@ function deletecommentAction(){
     request_auth(true);
     $id=$_GET['id'];
     delete_comment($id);
-    header("location:/du_an_1_Nhom3/?role=admin&mod=comment");
+    header("location:/du_an_1_Nhom3/?role=admin&mod=comments");
 }
 ?>
