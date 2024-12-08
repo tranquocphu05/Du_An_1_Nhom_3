@@ -2,3 +2,7 @@
 <?php require "layout/client/home_client.php" ?>
 <?php require "layout/client/footer_client.php" ?>
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/main

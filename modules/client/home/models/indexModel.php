@@ -5,6 +5,10 @@ function get_list_productions() {
     $result=db_fetch_array("select *  from productions  where 1 order by id ");
     return $result;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/main
 function get_list_services() {
     $result = db_fetch_array("SELECT s.id, s.name, s.description,s.price,s.image,
      s.created_id, s.created_at, u.full_name, u.id as `uid` FROM `service` 
