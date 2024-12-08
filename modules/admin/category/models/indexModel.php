@@ -9,5 +9,19 @@ function get_one_category($id) {
     return $result;
 }
 
+function delete_category($id) {
+    db_delete('categories', "id = $id");
+    return true;
+}
 
 
+function create_category($name, $description) {
+    $user = get_auth();
+    $id = db_insert('categories', [
+        'name' => $name,
+        'description' => $description,
+        'created_id' => $user['id'],
+        'created_at' => date('Y-m-d H:i:s')
+    ]);
+    return $id;
+}
