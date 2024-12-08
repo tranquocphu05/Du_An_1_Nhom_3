@@ -121,7 +121,26 @@ function insertBillPostAction()
 
                   ]);
 
-               
+                  $title = "Thông báo dịch vụ đặt phòng tại  Hotel AYBITI";
+                  $content = "<p>Xin chào,<b>$full_name</b></p>
+                              <p>Cảm ơn <b>$full_name</b> đã sử dụng dịch vụ khách sạn của chúng tôi - khách sạn Poly's Hotel.</p>
+                              
+                              <p>Như lời yêu cầu, chúng tôi đã đặt phòng cho <b>$full_name</b> với tên phòng là ".$cart['name']." từ ngày ".$cart['check_in_date']." đến ngày ".$cart['check_out_date'].".
+                              Tổng tiền là: $$price.
+                              </p>
+                              
+                              <p>Chúng tôi rất mong đợi chuyếnn thăm của <b>$full_name</b></p>
+                              
+                              Trân trọng.
+                              
+
+                  ";
+                  GuiMail($title, $content, $addressMail);
+                  //push_notification('danger', ['Đặt phòng thành công']);
+
+                  // header('location:/du_an_1_Nhom3/?role=client&mod=bill&action=index');
+                  header("Refresh: 0.1; URL=/du_an_1_Nhom3/?role=client&mod=bill&action=index");
+                  echo "<script> alert('Đặt phòng ".$cart['name']." thành công!!!') </script>";
             } else {
                   $check2 = false;
                   echo "<script> alert('Phòng ".$cart['name']." không thể đặt. Do có người đặt trước đó rồi!!!') </script>";
