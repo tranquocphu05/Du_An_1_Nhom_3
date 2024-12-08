@@ -38,3 +38,30 @@
 
     <input type="submit" name="update" value="Update"/>
 </form>
+
+<script>
+    // Listen for change events on the checkboxes and enforce the logic that only one checkbox can be checked at a time.
+    document.getElementById('confirm_room').addEventListener('change', function() {
+        if (this.checked) {
+            // Uncheck the other checkboxes if this one is checked
+            document.getElementById('cancel_room').checked = false;
+            document.getElementById('checkin').checked = false;
+        }
+    });
+
+    document.getElementById('cancel_room').addEventListener('change', function() {
+        if (this.checked) {
+            // Uncheck the other checkboxes if this one is checked
+            document.getElementById('confirm_room').checked = false;
+            document.getElementById('checkin').checked = false;
+        }
+    });
+
+    document.getElementById('checkin').addEventListener('change', function() {
+        if (this.checked) {
+            // Uncheck the other checkboxes if this one is checked
+            document.getElementById('confirm_room').checked = false;
+            document.getElementById('cancel_room').checked = false;
+        }
+    });
+</script>
