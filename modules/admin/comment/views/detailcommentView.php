@@ -13,8 +13,8 @@
         <div class="card card-custom">
             <div class="card-header flex-wrap border-0 pt-6 pb-0">
                 <div class="card-title">
-                    <h3>Danh sacsh binh luan
-                    <!--  -->
+                    <h3 class="card-title">Danh sách bình luận
+                  
                     <span class="d-block text-muted pt-2 font-size-sm">Danh sách các bình luận sản phẩm có trên hệ thống</span>
                     </h3> 
                 </div>
@@ -52,8 +52,8 @@
                 <table class="datatable datatable-bordered datatable-head-custom" id="kt_datatable">
                     <thead>
                         <tr>
-                            <th>ID</th>
-                            <th>Họ và tên</th>
+                            <th style="width:50px">ID</th>
+                            <th title="Field #2">Họ và tên</th>
                             <th>Nội dung</th>
                             <th>Ngày bình luận</th>
                             <th>Hành động</th>
