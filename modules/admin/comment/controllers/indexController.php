@@ -4,6 +4,7 @@ function construct(){
 }
 
 function indexAction(){
+    request_auth(true);
     $data['comment']=manage_comments();
     load_view('index', $data);
 }
