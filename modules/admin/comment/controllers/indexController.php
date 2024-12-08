@@ -1,6 +1,6 @@
 <?php
 function construct(){
-    load_model("index");
+    load_model('index');
 }
 
 function indexAction(){
