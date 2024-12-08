@@ -16,7 +16,7 @@ function detailcommentAction(){
 }
 function deletecommentAction(){
     request_auth(true);
-    $id=$_GET["id"];
+    $id=$_GET['id'];
     delete_comment($id);
     header("location:/du_an_1_Nhom3/?role=admin&mod=comment");
 }
