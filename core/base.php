@@ -137,35 +137,21 @@ function call_function($list_function = array()) {
 }
 function request_auth($isLogin = true)
 {
-    $auth = $_GET['role'] ?? '';
-    
-    $request_role = get_role() === 'admin' ? 2 : 1;
-    
+    $auth=$_GET['role'];
+    $request_role = get_role() === 'admin' ? 2 : 1  ;
     if (is_auth() !== $isLogin) {
-        header("Location: " . ($isLogin ? '/du_an_1_Nhom3/?role='. ($auth) . '&mod=auth' : '/du_an_1_poly_hotel/?role=' . ($auth)));
+        header("Location: " . ($isLogin ? '/du_an_1_poly_hotel/?role='. ($auth) . '&mod=auth' : '/du_an_1_poly_hotel/?role=' . ($auth)));
         die;
     }
-    
     if (is_auth()) {
         $auth = get_auth();
-        
-        if ($auth['role'] == 2) { 
-            return;
-        }
-        
-        if ($auth['role'] == 1) { 
-            if (isset($_GET['mod'], $_GET['action']) && $_GET['mod'] === 'account' && $_GET['action'] === 'edit') {
-                return;
-            }
-            
-            header("Location: /du_an_1_Nhom3/?role=client");
+        if ($auth['role'] != $request_role) {
+            header("Location: /du_an_1_poly_hotel/?role=" . ($auth['role'] == 1 ? 'client' : 'admin'));
             die;
         }
-        
-        header("Location: /du_an_1_Nhom3/?role=" . ($auth['role'] == 1 ? 'client' : 'admin'));
-        die;
     }
 }
+
 
 function get_auth()
 {
