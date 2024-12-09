@@ -66,6 +66,145 @@
     </ul>
 </div>
 
+<style>
+  /* General Styles */
+  .container {
+    max-width: 1200px;
+  }
+
+  .section-title {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #007bff;
+    margin-bottom: 20px;
+  }
+
+  .product-title {
+    font-size: 2.25rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+  }
+
+  .product-location {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 20px;
+  }
+
+  /* Card Image Hover Effect */
+  .card-image {
+    overflow: hidden;
+    position: relative;
+    border-radius: 10px;
+  }
+
+  .card-image img {
+    transition: transform 0.3s ease;
+    width: 100%;
+  }
+
+  .card-image:hover img {
+    transform: scale(1.1);
+  }
+
+  /* Button Styles */
+  .btn {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+    padding: 12px 15px;
+    font-size: 1.2rem;
+  }
+
+  .btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    background-color: #28a745;
+    color: white;
+  }
+
+  /* Services List Styling */
+  /* Service List Styling */
+.service-list {
+    list-style-type: none; /* Remove default bullets */
+    padding: 0;
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.service-list li {
+    margin-bottom: 15px;
+    padding-left: 30px; /* Add space for the icon */
+    position: relative;
+    font-weight: 500;
+    color: #555;
+}
+
+/* Adding the service icon */
+.service-list li .service-icon {
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 1.5rem;
+    color: #28a745; /* Icon color */
+    margin-top: 6px; /* Adjust for vertical alignment */
+}
+
+/* Style for the text beside the icons */
+.service-list li span {
+    font-size: 1.2rem;
+    padding-left: 35px; /* Adjust text padding to align with icon */
+    color: #333; /* Text color */
+}
+
+/* Optional Hover Effect for List Items */
+.service-list li:hover {
+    color: #007bff;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding-left: 40px; /* Add space when hovering */
+}
+
+.service-list li:hover .service-icon {
+    color: #007bff; /* Change icon color on hover */
+}
+
+  /* Comment Section Styling */
+  .comment-text {
+    max-width: 300px;
+    word-wrap: break-word;
+    word-break: break-word;
+  }
+
+  /* Table Styling */
+  .table-hover tbody tr:hover {
+    background-color: #f8f9fa;
+  }
+
+  .table-light th, .table-light td {
+    text-align: center;
+    vertical-align: middle;
+    padding: 12px;
+  }
+
+  /* Related Products */
+  .related-products .card {
+    border: 1px solid #f1f1f1;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+  }
+
+  .related-products .card:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Google Map */
+  iframe {
+    border-radius: 8px;
+  }
+</style>
+
+
  
  
 
