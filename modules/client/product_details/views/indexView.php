@@ -66,6 +66,32 @@
     </ul>
 </div>
 
+
+
+  <!-- Sản phẩm liên quan -->
+  <div class="related-products mt-5">
+    <h3 class="section-title">Các Phòng cùng loại:</h3>
+    <div class="row">
+      <?php foreach($pro_cat as $item): ?>
+      <div class="col-md-4 mb-4">
+        <div class="card shadow-sm">
+          <div class="card-body text-center">
+            <a href="/du_an_1_Nhom3/?role=client&mod=product_details&action=index&id=<?= $item['id'] ?>">
+              <h5 class="text-primary">🏡 <?= $item['name'] ?></h5>
+            </a>
+          </div>
+        </div>
+      </div>
+      <?php endforeach ?>
+    </div>
+  </div>
+
+
+<!--End trang chi tiết-->
+
+<?php require "layout/client/footer_client.php" ?>
+
+<!-- Custom CSS -->
 <style>
   /* General Styles */
   .container {
@@ -203,11 +229,4 @@
     border-radius: 8px;
   }
 </style>
-
-
- 
- 
-
-
-<?php require "layout/client/footer_client.php" ?>
 
