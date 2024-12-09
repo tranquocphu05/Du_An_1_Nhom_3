@@ -85,7 +85,12 @@
       <?php endforeach ?>
     </div>
   </div>
-
+ <!-- Google Map -->
+ <div class="container mt-5 mb-3">
+    <h3 class="section-title">Bản đồ</h3>
+    <iframe src="https://www.google.com/maps/embed?pb=... (your map embed link here) ..." width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+  </div>
+</div>
 
 <!--End trang chi tiết-->
 
