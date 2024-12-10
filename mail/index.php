@@ -5,6 +5,10 @@ function GuiMail($title, $content, $addressMail){
     require 'PHPMailer/src/Exception.php'; 
     $mail = new PHPMailer\PHPMailer\PHPMailer(true);//true:enables exceptions
     try {
+<<<<<<< HEAD
+=======
+
+>>>>>>> duy
         $mail->SMTPDebug = 0; //0,1,2: chế độ debug. khi chạy ngon thì chỉnh lại 0 nhé
 
         $mail->SMTPDebug = 0; //: chế độ debug. khi chạy ngon thì chỉnh lại  nhé
@@ -23,8 +27,11 @@ function GuiMail($title, $content, $addressMail){
 
         $mail->isHTML(true); 
         $mail->Subject = $title;
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> duy
         $mail->Body = $content;
         $mail->smtpConnect( array(
             "ssl" => array(
