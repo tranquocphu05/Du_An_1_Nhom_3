@@ -8,7 +8,6 @@ function construct() {
 function indexAction() {
     // đẩy phòng lên giao diện trang chủ
     $data['productions'] = get_list_productions();
-
     // đẩy phẩn dịch vụ lên trang chủ
     $data['services'] = get_list_services();
     $data['categories'] = get_list_categories();

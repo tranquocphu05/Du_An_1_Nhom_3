@@ -24,13 +24,6 @@ function GuiMail($title, $content, $addressMail){
 
         $mail->isHTML(true); 
         $mail->Subject = $title;
-
-        //$content='Thủy test mail';
-
-        $mail->isHTML(true);  
-      
-        $mail->Subject = $title;
-
         $mail->Body = $content;
         $mail->smtpConnect( array(
             "ssl" => array(
