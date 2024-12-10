@@ -9,12 +9,13 @@ function indexAction()
 {
       if (is_auth()) {
             $notifications = get_notification();
+            $user = get_user($_SESSION['auth']['id'] ?? null);
             load_view('index', [
-                  "notifications" => $notifications
+                  "notifications" => $notifications,
+                  "user" => $user
             ]);
       } else {
             header('location:/du_an_1_Nhom3/?role=client&mod=auth');
-            
       }
 }
 function indexPostAction()
@@ -35,12 +36,12 @@ function indexPostAction()
             // echo "<pre>";
             //       var_dump(  $_SESSION['cart']);die();
             $check = false;
-            foreach ($_SESSION['cart'] as $key => $value) {
-                  if ($production['id'] == $value['id']) {
-                        $check = true;
-                        break;
-                  }
-            }
+            // foreach ($_SESSION['cart'] as $key => $value) {
+            //       if ($production['id'] == $value['id']) {
+            //             $check = true;
+            //             break;
+            //       }
+            // }
             if ($check) {
                   echo "<script> alert('Phòng đã được tồn tại trong giỏ hàng.Vui lòng vào giỏ hàng để hoàn thành các bước thanh toán!!!') </script>";
                   header("Refresh: 0.5; URL=/du_an_1_Nhom3/?role=client&mod=product_details&action=index&id=$id");
@@ -161,6 +162,22 @@ function listAction()
       } else {
             header('location:/du_an_1_Nhom3/?role=client&mod=auth');
       }
+}
+
+function deleteAction()
+{
+      
+      if (isset($_GET['id'])) {
+           unset($_SESSION['cart'][$_GET['id']]);
+        } else {
+            $_SESSION['cart'] = [];
+        }
+
+
+     
+      header('location:/du_an_1_Nhom3/?role=client&mod=bill&action=index');
+ 
+
 }
 
 

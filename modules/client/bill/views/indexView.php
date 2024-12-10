@@ -10,7 +10,7 @@
                 <div class="form-group">
                     <label>Tên người đặt hàng</label>
                     <div class="input-group">
-                        <input type="text" name="full_name" class="form-control" required placeholder="Tên người đặt hàng" aria-describedby="basic-addon2" />
+                        <input type="text" name="full_name" value="<?= !empty($user['full_name']) ? $user['full_name'] : '' ?>" class="form-control" required placeholder="Tên người đặt hàng" aria-describedby="basic-addon2" />
                     </div>
                 </div>
             </div>
@@ -18,7 +18,7 @@
                 <div class="form-group">
                     <label>Email</label>
                     <div class="input-group">
-                        <input type="text" name="email" class="form-control" required placeholder="Email" aria-describedby="basic-addon2" />
+                        <input type="text" name="email" value="<?= !empty($user['email']) ? $user['email'] : '' ?>" class="form-control" required placeholder="Email" aria-describedby="basic-addon2" />
                         <!-- <div class="input-group-append"><span class="input-group-text">VND</span></div> -->
                     </div>
                 </div>
@@ -27,7 +27,7 @@
                 <div class="form-group">
                     <label>Địa chỉ</label>
                     <div class="input-group">
-                        <input type="text" name="address" class="form-control" required placeholder="Địa chỉ" aria-describedby="basic-addon2" />
+                        <input type="text" name="address" value="<?= !empty($user['address']) ? $user['address'] : '' ?>" class="form-control" required placeholder="Địa chỉ" aria-describedby="basic-addon2" />
                         <!-- <div class="input-group-append"><span class="input-group-text">VND</span></div> -->
                     </div>
                 </div>
@@ -36,7 +36,7 @@
                 <div class="form-group">
                     <label>Số điện thoại</label>
                     <div class="input-group">
-                        <input type="text" name="numberphone" class="form-control" required placeholder="Tên người đặt hàng" aria-describedby="basic-addon2" />
+                        <input type="text" name="numberphone" value="<?= !empty($user['numberphone']) ? $user['numberphone'] : '' ?>" class="form-control" required placeholder="Tên người đặt hàng" aria-describedby="basic-addon2" />
                         <!-- <div class="input-group-append"><span class="input-group-text">VND</span></div> -->
                     </div>
                 </div>
@@ -44,6 +44,26 @@
         </div>
     </div>
     </div>
+
+    <!-- <div class="formdathang">
+        <div>
+            <td>Người đặt hàng</td> <br>
+            <td><input type="text" name="full_name"></td>
+        </div>
+        <div>
+            <td>Địa chỉ</td><br>
+            <td><input type="text" name="address"></td>
+        </div>
+        <div>
+            <td>Email</td><br>
+            <td><input type="text" name="email" required></td>
+        </div>
+        <div>
+            <td>Số điện thoại</td><br>
+            <td><input type="text" name="numberphone"></td>
+        </div>
+
+    </div> -->
     <br>
 
 
@@ -86,8 +106,6 @@
                     <th><a href="/du_an_1_Nhom3/?role=client&mod=bill&action=delete" class="">Xoá tất cả</a></th>
                 </tr>
             </thead>
-
-            
 
             <tbody>
                 <?php

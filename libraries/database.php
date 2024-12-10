@@ -1,16 +1,21 @@
 <?php
+
 // Hàm kết nối dữ liệu
 function db_connect($db) {
     global $conn;
+    
+    // Attempt to connect to MySQL server
     $conn = mysqli_connect($db['hostname'], $db['username'], $db['password'], $db['database']);
     
     // Check connection
     if (!$conn) {
-        error_log("MySQL connection failed: " . mysqli_connect_error(), 0);
-        die("Kết nối không thành công: " . mysqli_connect_error());
+        error_log("MySQL connection failed: " . mysqli_connect_error(), 0);  // Log the error
+        die("Kết nối không thành công: " . mysqli_connect_error());  // Display error message
     }
     return $conn;
 }
+
+
 //Thực thi chuổi truy vấn
 function db_query($query_string) {
     global $conn;
@@ -20,8 +25,6 @@ function db_query($query_string) {
     }
     return $result;
 }
-<<<<<<< HEAD
-=======
 
 // Lấy một dòng trong CSDL
 function db_fetch_row($query_string) {
@@ -44,34 +47,13 @@ function db_fetch_array($query_string) {
     mysqli_free_result($mysqli_result);
     return $result;
 }
-
 //Lấy số bản ghi
-
-function db_update($table, $data, $where) {
+function db_num_rows($query_string) {
     global $conn;
-    $sql = "";
-    foreach ($data as $field => $value) {
-        if ($value === NULL)
-            $sql .= "$field=NULL, ";
-        else
-            $sql .= "$field='" . escape_string($value) . "', ";
-    }
-    $sql = substr($sql, 0, -2);
-    db_query("
-            UPDATE $table
-            SET $sql
-            WHERE $where
-   ");
-    return mysqli_affected_rows($conn);
+    $mysqli_result = db_query($query_string);
+	return mysqli_num_rows($mysqli_result);
 }
 
-function db_delete($table, $where) {
-    global $conn;
-    $query_string = "DELETE FROM " . $table . " WHERE $where";
-    db_query($query_string);
-    return mysqli_affected_rows($conn);
-}
->>>>>>> duy
 function db_insert($table, $data) {
     global $conn;
     $fields = "(" . implode(", ", array_keys($data)) . ")";
@@ -88,31 +70,7 @@ function db_insert($table, $data) {
             VALUES($values)
         ");
     return mysqli_insert_id($conn);
-
 }
-// Lấy một dòng trong CSDL
-function db_fetch_row($query_string) {
-    global $conn;
-    $result = array();
-    $mysqli_result = db_query($query_string);
-    $result = mysqli_fetch_assoc($mysqli_result);
-    mysqli_free_result($mysqli_result);
-    return $result;
-}
-
-//Lấy một mảng trong CSDL
-function db_fetch_array($query_string) {
-    global $conn;
-    $result = array();
-    $mysqli_result = db_query($query_string);
-    while ($row = mysqli_fetch_assoc($mysqli_result)) {
-        $result[] = $row;
-    }
-    mysqli_free_result($mysqli_result);
-    return $result;
-}
-
-//Lấy số bản ghi
 
 function db_update($table, $data, $where) {
     global $conn;
@@ -143,6 +101,8 @@ function escape_string($str) {
     global $conn;
     return mysqli_real_escape_string($conn, $str);
 }
+
+// Hiển thị lỗi SQL
 
 function db_sql_error($message, $query_string = "") {
     global $conn;

@@ -66,7 +66,47 @@
     </ul>
 </div>
 
+  <!-- Form bình luận -->
+  <div class="comments mt-5">
+    <h3 class="section-title">Bình luận</h3>
+    <div class="row">
+      <div class="col-md-12">
+        <table class="table table-hover table-striped">
+          <thead class="thead-light">
+            <tr>
+              <th>Name</th>
+              <th>Nội dung</th>
+              <th>Date/Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php foreach ($comments as $comment): ?>
+            <tr>
+              <td><?= $comment['full_name']?></td>
+              <td class="comment-text"><?= $comment['description']?></td>
+              <td><?= $comment['created_at'] ?></td>
+            </tr>
+            <?php endforeach ?>
+          </tbody>
+        </table>
+      </div>
+    </div>
 
+    <?php if(is_auth()){?>
+    <form action="/du_an_1_Nhom3/?role=client&mod=product_details&action=addComments&id=<?= $productions['id'] ?>" method="post">
+      <div class="row">
+        <div class="col-md-10 mt-1">
+          <input id="comment-input" class="form-control" type="text" name="description" placeholder="Bình luận" required>
+        </div>
+        <div class="col-md-2 mt-1">
+          <button type="submit" class="btn btn-primary w-100 btn-lg">Gửi</button>
+        </div>
+      </div>
+    </form>
+    <?php } else { ?>
+    <h5 style="margin-bottom:10px;">Vui lòng đăng nhập để bình luận <a href="/du_an_1_Nhom3/?role=client&mod=auth">Đăng nhập</a></h5>
+    <?php } ?>
+  </div>
 
   <!-- Sản phẩm liên quan -->
   <div class="related-products mt-5">
@@ -85,57 +125,14 @@
       <?php endforeach ?>
     </div>
   </div>
- <!-- Google Map -->
- <div class="container mt-5 mb-3">
+
+  <!-- Google Map -->
+  <div class="container mt-5 mb-3">
     <h3 class="section-title">Bản đồ</h3>
     <iframe src="https://www.google.com/maps/embed?pb=... (your map embed link here) ..." width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
   </div>
 </div>
-
 <!--End trang chi tiết-->
-
-<!-- Bình luận -->
-      <div class="container mt-3">
-        <h3>Bình luận</h3> <br>
-        <div class="row">
-          <div class="col-md-12">
-            <table class="table table-light">
-              <thead class="thead-light">
-              <tr>
-                <th>Name</th>
-                <th>Nội dung</th>
-                <th>Date/time</th>
-              </tr>
-              </thead>
-              <tbody>
-                <?php foreach ($comments as $comment): ?>
-                  <tr>
-                  <th><?= $comment['full_name']?></th>
-                <th style="max-width: 300px;
-    word-wrap: break-word;
-    word-break: break-word;"><?= $comment['description']?></th>
-                <th><?= $comment['created_at'] ?></th>
-                  </tr>
-                  <?php endforeach ?>
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <?php if(is_auth()){ ?>
-            <form action="/du_an_1_Nhom3/?role=client&mod=product_details&action=addComments&id=<?= $productions['id'] ?>" method="post">
-              <div class="row">
-                <div class="col-md-10 mt-1">
-                  <input id="my-input" class="form-control" type="text" name="description" placeholder="Bình luận">
-                </div>
-                <div class="form-group col-md-2 mt-1">
-            <input id="my-input" class=" btn btn-primary w-100" type="submit" name="" value="Gửi">
-                </div>
-              </div>
-            </form>
-            <?php }else{ ?>
-              <h5 style="margin-bottom:10px">Vui lòng đăng nhập để bình luận</h5>
-          <?php } ?>
-      </div>
 
 <?php require "layout/client/footer_client.php" ?>
 

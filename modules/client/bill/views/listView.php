@@ -39,16 +39,28 @@
                     </thead>
                     <tbody>
                         <?php foreach ($bill_details as $value) {
-                            echo '
+                            ?>
                                 <tr> 
-                                    <td>' . $value['id'] . '</td>
-                                    <td>' . $value['name'] . '</td>
-                                    <td>' . $value['check_in_date'] . '</td>
-                                    <td>' . $value['check_out_date'] . '</td>
-                                    <td>' . $value['price'] . '</td>
-                                    <td>' . $value['status'] . '<h5> Đã Đặt Thành Công</h5></td>
+                                    <td><?= $value['id'] ?></td>
+                                    <td><?= $value['name'] ?></td>
+                                    <td><?= $value['check_in_date'] ?></td>
+                                    <td><?= $value['check_out_date'] ?></td>
+                                    <td><?= $value['price'] ?></td>
+                                    <td>
+                                        <?php
+                                            if ($value['confirm_room'] == 1) {
+                                                echo "Đã xác nhận";
+                                            } else if ($value['cancel_room'] == 1) {
+                                                echo "Đã huỷ";
+                                            } else if ($value['checkin'] == 1) {
+                                                echo "Đã checkin";
+                                            } else {
+                                                echo "Đặt phòng thành công";
+                                            }
+                                        ?>
+                                    </td>
                                 </tr>
-                            ';
+                            <?php
                         } ?>
                     </tbody>
                 </table>

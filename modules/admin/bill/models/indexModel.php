@@ -34,6 +34,7 @@ function delete_bill_detail($id) {
     $params = [':id' => $id];
     db_delete($sql, $params); 
 }
+
 // Cập nhật thông tin sản phẩm
 function update_production($data, $id) {
     db_update('bill_details', $data, "id = $id");

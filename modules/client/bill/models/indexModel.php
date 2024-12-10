@@ -2,6 +2,10 @@
 
 <?php  
 
+function get_user($id) {
+    $result = db_fetch_row("SELECT * FROM `users` WHERE id = $id");
+    return $result;
+}
 
 function get_one_production($id) {
     $result = db_fetch_row("SELECT p.*,u.full_name as `full_name` FROM `productions` p JOIN `users` u ON p.created_id = u.id WHERE p.id = $id");

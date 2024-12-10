@@ -26,6 +26,7 @@ function saveCreatePostAction()
     request_auth(true);
     $categories = $_POST['category_id'];
     $name = $_POST['name'];
+    // $count = $_POST['count'];
     $price = $_POST['price'];
     $description = $_POST['description'];
     $status = $_POST['status'];
@@ -70,7 +71,7 @@ function updateAction()
     $data['production'] = $production;
     $categories = get_list_categories();
     $data['categories'] = $categories;
-    
+    // $data1['category'] = $categories;
 
     if ($production) {
         load_view('update', $data);
@@ -95,10 +96,8 @@ function updatePostAction()
     move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
     if ($_FILES["image"]["size"] != 0) {
         $data = ["id" => $id, "description" => $description, "name" => $name, "count" => $count, "status" => $status, "price" => $price, "image" => $target_file, "category_id" => $categories];
-    
 
     } else {
-       
         $data = ["id" => $id, "description" => $description, "name" => $name, "count" => $count, "price" => $price, "category_id" => $categories, "status" => $status];
     }
     update_production($data, $id);
