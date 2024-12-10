@@ -27,23 +27,6 @@ function create_production($name, $description,$target_file,$price,$categories,$
     ]);
     return $id;
 }
-// function create_production($data){
-//     $user= get_auth();
-//     db_insert('productions',$data);
-    
-// }
-
-// function update_production($id, $name, $description,$target_file,$count,$price,$categories) {
-//     db_update('productions', [
-//         'name' => $name,
-//         'description' => $description,
-//         'image' => $target_file,
-//         'count' => $count,
-//         'price' => $price,
-//         'category_id' => $categories,
-//     ], "id = $id");
-//     return true;
-// }
 function update_production($data,$id){
     db_update('productions', $data, "id=$id");
 }
@@ -56,7 +39,3 @@ function get_list_categories() {
     $result = db_fetch_array("SELECT * FROM `categories`");
     return $result;
 }
-// function get_one_category($id) {
-//     $result = db_fetch_row("SELECT c.id, c.name, c.description, c.created_id, c.created_at, u.full_name, u.id as `uid` FROM `categories` c JOIN `users` u ON c.created_id = u.id WHERE c.id = $id");
-//     return $result;
-// }
