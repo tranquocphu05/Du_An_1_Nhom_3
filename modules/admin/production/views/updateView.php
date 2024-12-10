@@ -1,5 +1,3 @@
-
-
 <?php get_header('', 'Chỉnh sửa sản phẩm') ?>
 
 <!--begin::Subheader-->
@@ -23,15 +21,16 @@
         <!--begin::Card-->
         <div class="card card-custom gutter-b example example-compact">
             <div class="card-header">
-                <h3 class="card-title">Form thông tin sản phẩm mới</h3>
+                <h3 class="card-title">Form chỉnh sửa phòng</h3>
             </div>
             <!--begin::Form-->
-            <form method="POST" action="/du_an_1_Nhom3/?role=admin&mod=production&action=update" enctype="multipart/form-data">
+            <form method="POST" action="/du_an_1_Nhom3/?role=admin&mod=production&action=update"
+                enctype="multipart/form-data">
                 <div class="card-body">
                     <div class="form-group">
                         <label>Danh mục sản phẩm</label>
-                <input type="hidden" value="<?=$production['id']?>" name="id">
-                        
+                        <input type="hidden" value="<?= $production['id'] ?>" name="id">
+
                         <select class="form-control select2" name="category_id">
                             <?php foreach ($categories as $category) {
                                 if ($production['category_id'] == $category["id"]) {
@@ -44,32 +43,41 @@
                     </div>
                     <div class="form-group">
                         <label>Tên phòng</label>
-                        <input type="text" name="name" class="form-control" placeholder="Nhập vào tên phòng" value="<?php echo $production['name'] ?>" />
+                        <input type="text" name="name" class="form-control" placeholder="Nhập vào tên phòng"
+                            value="<?php echo $production['name'] ?>" />
                         <!-- <span class="form-text text-muted">We'll never share your email with anyone else.</span> -->
                     </div>
                     <div class="form-group">
                         <label>Ảnh phòng</label>
-                        <input type="file" name="image" class="form-control" value="<?php echo $production['image'] ?>" />
+                        <input type="file" name="image" class="form-control"
+                            value="<?php echo $production['image'] ?>" />
                         <!-- <span class="form-text text-muted">We'll never share your email with anyone else.</span> -->
                     </div>
                     <div class="form-group">
+                        <img src="<?php echo $production['image'] ?>" width="200px" alt="">
+                    </div>
+                    <div class="form-group">
                         <label>Số lượng phòng</label>
-                        <input type="text" name="count" class="form-control" placeholder="Nhập vào số lượng phòng" value="<?php echo $production['count'] ?>" />
+                        <input type="text" name="count" class="form-control" placeholder="Nhập vào số lượng phòng"
+                            value="<?php echo $production['count'] ?>" />
                         <!-- <span class="form-text text-muted">We'll never share your email with anyone else.</span> -->
                     </div>
                     <div class="form-group">
                         <label>Giá phòng</label>
-                        <input type="text" name="price" class="form-control" placeholder="Nhập vào giá phòng" value="<?php echo $production['price'] ?>" />
+                        <input type="text" name="price" class="form-control" placeholder="Nhập vào giá phòng"
+                            value="<?php echo $production['price'] ?>" />
                         <!-- <span class="form-text text-muted">We'll never share your email with anyone else.</span> -->
                     </div>
                     <div class="form-group">
-                        
-                        <input type="radio" value="1" name="status" <?= $production['status'] == 1 ? "checked" : "" ?>>Có thể thuê
+
+                        <input type="radio" value="1" name="status" <?= $production['status'] == 1 ? "checked" : "" ?>>Có
+                        thể thuê
                         <input type="radio" value="2" name="status" <?= $production['status'] == 2 ? "checked" : "" ?>>Không thể thuê
                     </div>
                     <div class="form-group mb-1">
                         <label for="descriptionCategoryInput">Mô tả phòng</label>
-                        <textarea name="description" class="form-control" id="descriptionCategoryInput" rows="3"><?php echo $production['description'] ?></textarea>
+                        <textarea name="description" class="form-control" id="descriptionCategoryInput"
+                            rows="3"><?php echo $production['description'] ?></textarea>
                     </div>
                 </div>
                 <div class="card-footer">
