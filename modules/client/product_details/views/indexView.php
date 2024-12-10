@@ -94,6 +94,49 @@
 
 <!--End trang chi tiết-->
 
+<!-- Bình luận -->
+      <div class="container mt-3">
+        <h3>Bình luận</h3> <br>
+        <div class="row">
+          <div class="col-md-12">
+            <table class="table table-light">
+              <thead class="thead-light">
+              <tr>
+                <th>Name</th>
+                <th>Nội dung</th>
+                <th>Date/time</th>
+              </tr>
+              </thead>
+              <tbody>
+                <?php foreach ($comments as $comment): ?>
+                  <tr>
+                  <th><?= $comment['full_name']?></th>
+                <th style="max-width: 300px;
+    word-wrap: break-word;
+    word-break: break-word;"><?= $comment['description']?></th>
+                <th><?= $comment['created_at'] ?></th>
+                  </tr>
+                  <?php endforeach ?>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <?php if(is_auth()){ ?>
+            <form action="/du_an_1_Nhom3/?role=client&mod=product_details&action=addComments&id=<?= $productions['id'] ?>" method="post">
+              <div class="row">
+                <div class="col-md-10 mt-1">
+                  <input id="my-input" class="form-control" type="text" name="description" placeholder="Bình luận">
+                </div>
+                <div class="form-group col-md-2 mt-1">
+            <input id="my-input" class=" btn btn-primary w-100" type="submit" name="" value="Gửi">
+                </div>
+              </div>
+            </form>
+            <?php }else{ ?>
+              <h5 style="margin-bottom:10px">Vui lòng đăng nhập để bình luận</h5>
+          <?php } ?>
+      </div>
+
 <?php require "layout/client/footer_client.php" ?>
 
 <!-- Custom CSS -->

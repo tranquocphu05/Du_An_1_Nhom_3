@@ -58,7 +58,7 @@ function db_fetch_array($query_string) {
     mysqli_free_result($mysqli_result);
     return $result;
 }
-<<<<<<< HEAD
+
 //Lấy số bản ghi
 
 function db_update($table, $data, $where) {
@@ -84,33 +84,13 @@ function db_delete($table, $where) {
     $query_string = "DELETE FROM " . $table . " WHERE $where";
     db_query($query_string);
     return mysqli_affected_rows($conn);
-=======
-function db_insert($table, $data) {
-    global $conn;
-    $fields = "(" . implode(", ", array_keys($data)) . ")";
-    $values = "";
-    foreach ($data as $field => $value) {
-        if ($value === NULL)
-            $values .= "NULL, ";
-        else
-            $values .= "'" . escape_string($value) . "', ";
-    }
-    $values = substr($values, 0, -2);
-    db_query("
-            INSERT INTO $table $fields
-            VALUES($values)
-        ");
-    return mysqli_insert_id($conn);
->>>>>>> duy
 }
+
 function escape_string($str) {
     global $conn;
     return mysqli_real_escape_string($conn, $str);
 }
-<<<<<<< HEAD
-// Hiển thị lỗi SQL
-=======
->>>>>>> duy
+
 function db_sql_error($message, $query_string = "") {
     global $conn;
 

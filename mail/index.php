@@ -5,11 +5,10 @@ function GuiMail($title, $content, $addressMail){
     require 'PHPMailer/src/Exception.php'; 
     $mail = new PHPMailer\PHPMailer\PHPMailer(true);//true:enables exceptions
     try {
-<<<<<<< HEAD
         $mail->SMTPDebug = 0; //0,1,2: chế độ debug. khi chạy ngon thì chỉnh lại 0 nhé
-=======
+
         $mail->SMTPDebug = 0; //: chế độ debug. khi chạy ngon thì chỉnh lại  nhé
->>>>>>> tranquocphu
+
         $mail->isSMTP();  
         $mail->CharSet  = "utf-8";
         $mail->Host = 'smtp.gmail.com';  //SMTP servers
@@ -21,16 +20,11 @@ function GuiMail($title, $content, $addressMail){
         $mail->setFrom('tranquocphu.05@gmail.com', 'hottel' ); 
 
         $mail->addAddress($addressMail); //mail và tên người nhận  
-<<<<<<< HEAD
+
         $mail->isHTML(true); 
         $mail->Subject = $title;
 
-        //$content='Thủy test mail';
-=======
-        $mail->isHTML(true);  
-      
-        $mail->Subject = $title;
->>>>>>> tranquocphu
+
         $mail->Body = $content;
         $mail->smtpConnect( array(
             "ssl" => array(
